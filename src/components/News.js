@@ -20,6 +20,10 @@ const cFL = (string) => {
 
   document.title = `${cFL(props.category)} - DailyAffairs`;
 
+  let x = new XMLHttpRequest();
+  x.open('GET', 'https://cors-anywhere.herokuapp.com/http://www.thecapitoltheatre.com/files/2016/01/squirrel1.jpg');
+  x.setRequestHeader('x-requested-with', 'XMLHTTPREQUEST');
+  x.setRequestHeader('origin', "http://localhost:3000"); 
 
 const updateNews= async () =>{
   const url = `https://abcorsproxy.herokuapp.com/https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=63c957333f134574a5808b85400d9ddd&page=${page}&pageSize=${props.pageSize}`;
