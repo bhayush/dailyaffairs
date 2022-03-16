@@ -21,15 +21,16 @@ const cFL = (string) => {
   document.title = `${cFL(props.category)} - DailyAffairs`;
 
 
-  const updateNews= async () =>{
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=63c957333f134574a5808b85400d9ddd&page=${page}&pageSize=${props.pageSize}`;
-    
-    let data = await fetch(url)
-    let parsedData = await data.json();
-    setArticles(parsedData.articles);
-    setTotalResults(parsedData.totalResults);
-    setLoading(false);
-    }
+const updateNews= async () =>{
+  const url = `https://abcorsproxy.herokuapp.com/https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=63c957333f134574a5808b85400d9ddd&page=${page}&pageSize=${props.pageSize}`;
+  
+  let data = await fetch(url)
+  let parsedData = await data.json();
+  setArticles(parsedData.articles);
+  setTotalResults(parsedData.totalResults);
+  setLoading(false);
+  
+}
 
 
 useEffect(() => {
@@ -38,7 +39,7 @@ useEffect(() => {
 });
 
 const fetchMoreData= async()=>{
-  const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=63c957333f134574a5808b85400d9ddd&page=${page+1}&pageSize=${props.pageSize}`;
+  const url = `https://abcorsproxy.herokuapp.com/https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=63c957333f134574a5808b85400d9ddd&page=${page+1}&pageSize=${props.pageSize}`;
   setPage(page + 1);
   let data = await fetch(url)
   let parsedData = await data.json();
