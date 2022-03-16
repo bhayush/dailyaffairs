@@ -35,7 +35,7 @@ const updateNews= async () =>{
 
 useEffect(() => {
  updateNews();
-},[]);
+});
 
 const fetchMoreData= async()=>{
   const url = `https://abcorsproxy.herokuapp.com/https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=63c957333f134574a5808b85400d9ddd&page=${page+1}&pageSize=${props.pageSize}`;
